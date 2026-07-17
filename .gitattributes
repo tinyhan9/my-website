@@ -1,0 +1,28 @@
+* text=auto
+.gitattributes text eol=lf
+.gitignore text eol=lf
+
+# Web/source text files use LF in repository and working tree.
+*.css text eol=lf
+*.html text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.mjs text eol=lf
+*.ps1 text eol=lf
+*.svg text eol=lf
+*.txt text eol=lf
+
+# Binary assets must never be line-ending normalized.
+*.aep binary
+*.ai binary
+*.gif binary
+*.jpg binary
+*.jpeg binary
+*.m4v binary
+*.mov binary
+*.mp4 binary
+*.png binary
+*.webp binary
+*.xls binary
+*.xlsx binary

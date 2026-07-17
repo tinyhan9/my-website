@@ -1,0 +1,44 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dependencies / package managers
+node_modules/
+.npm/
+.pnpm-store/
+
+# Build / cache output
+dist/
+build/
+coverage/
+.cache/
+.parcel-cache/
+.vite/
+bin/
+obj/
+.vs/
+TestResults/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local generated review artifacts
+tests/artifacts/
+outputs/
+back-index.html
+
+# Local files not referenced by assets/site-data.js
+其他作品/stick_notes_audio.mp4
+
+# Local manual backups and raw originals
+backups/
+orig/
