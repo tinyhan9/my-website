@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TINY Portfolio</title>
+    <meta
+      name="description"
+      content="CG、AIGC、动态影像与空间视觉方向的设计师作品集。"
+    />
+    <link rel="icon" href="logo/tinylogo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="主导航">
+      <div class="brand-cluster">
+        <a class="brand" href="#hero" aria-label="返回首页">
+          <img src="logo/tinylogo.svg" alt="TINY" />
+        </a>
+        <div class="header-social-list" id="headerSocialList" aria-label="顶部社媒链接"></div>
+      </div>
+      <nav class="nav-links" aria-label="页面导航">
+        <a href="#works">精选作品</a>
+        <a href="#contentHub">其他作品</a>
+        <a href="#about">关于</a>
+        <button class="language-pill" type="button" aria-label="语言切换预留">中文</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="hero" aria-label="首屏作品循环">
+        <div class="hero-stage" aria-hidden="true">
+          <video class="hero-video" muted playsinline autoplay></video>
+          <div class="hero-shade"></div>
+        </div>
+        <div class="hero-arrows" aria-label="首屏视频手动切换">
+          <button class="hero-arrow" type="button" data-hero-direction="prev" aria-label="上一个首屏视频">
+            <span class="hero-arrow-glyph">‹</span>
+          </button>
+          <button class="hero-arrow" type="button" data-hero-direction="next" aria-label="下一个首屏视频">
+            <span class="hero-arrow-glyph">›</span>
+          </button>
+        </div>
+        <div class="hero-controls">
+          <div class="hero-strip" id="heroStrip" aria-label="首屏视频选择"></div>
+        </div>
+      </section>
+
+      <section class="section work-section" id="works">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Selected Works</p>
+          <h2>精选作品</h2>
+        </div>
+        <div class="section-tools reveal">
+          <div class="filter-row" id="workFilters" aria-label="精选作品分类"></div>
+        </div>
+        <div class="work-grid featured-grid" id="workGrid"></div>
+      </section>
+
+      <section class="section hub-section" id="contentHub">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Studies & Experiments</p>
+          <h2>其他作品</h2>
+        </div>
+        <div class="section-tools reveal">
+          <div class="filter-row" id="experimentFilters" aria-label="其他作品分类"></div>
+        </div>
+        <div class="work-grid featured-grid" id="experimentGrid"></div>
+      </section>
+
+      <section class="section about-section" id="about">
+        <div class="section-heading reveal">
+          <p class="eyebrow">About & Contact</p>
+          <h2>关于</h2>
+        </div>
+        <div class="about-layout reveal">
+          <div class="about-copy">
+            <p>我是 Tiny Wang，一名三维动态设计师。</p>
+            <p>专注于产品视觉特效与质感表现。日常主要以 Houdini 和 Cinema 4D 为核心工作流，辅以 Blender 等工具，致力于通过理性的技术逻辑，实现兼具质感与表现力的动态视觉。</p>
+            <p>在特效领域，深谙流体、布料与粒子系统的物理动态解算。擅长在三维空间内，通过对形态、动态与材质的精准调度，重塑物体的视觉特征。从整体的空间氛围构建，到特写镜头下的动态细节刻画，力求精准传递产品的核心特征。</p>
+            <div class="contact-list" id="contactList" aria-label="联系方式"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <img src="logo/tinylogo.svg" alt="TINY" class="footer-logo" />
+        <p>CG / AIGC / Motion Direction</p>
+      </div>
+      <div class="social-list" id="socialList" aria-label="社媒链接"></div>
+    </footer>
+
+    <div class="social-popover" id="socialPopover" hidden aria-hidden="true">
+      <button class="social-popover-backdrop" type="button" aria-label="关闭社媒信息"></button>
+      <section class="social-popover-panel" role="dialog" aria-modal="false" aria-labelledby="socialPopoverLabel">
+        <button class="social-popover-close" type="button" aria-label="关闭">
+          <span></span>
+          <span></span>
+        </button>
+        <p class="item-label" id="socialPopoverLabel"></p>
+        <p class="social-popover-value" id="socialPopoverValue"></p>
+        <button class="social-copy" id="socialCopyButton" type="button">复制</button>
+      </section>
+    </div>
+
+    <div class="modal" id="workModal" aria-hidden="true">
+      <button class="modal-backdrop" type="button" aria-label="关闭作品详情"></button>
+      <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" type="button" aria-label="关闭">
+          <span></span>
+          <span></span>
+        </button>
+        <div class="modal-media">
+          <video id="modalVideo" controls playsinline></video>
+        </div>
+        <div class="modal-copy">
+          <p class="eyebrow" id="modalCategory"></p>
+          <h3 id="modalTitle"></h3>
+          <p id="modalDescription"></p>
+          <dl class="meta-list">
+            <div>
+              <dt>时长</dt>
+              <dd id="modalDuration"></dd>
+            </div>
+            <div>
+              <dt>规格</dt>
+              <dd id="modalDimensions"></dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+    </div>
+
+    <script src="assets/site-data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
