@@ -22,6 +22,7 @@
   const socialPopoverLabel = document.querySelector("#socialPopoverLabel");
   const socialPopoverValue = document.querySelector("#socialPopoverValue");
   const socialCopyButton = document.querySelector("#socialCopyButton");
+  const backToTop = document.querySelector("#backToTop");
 
   let heroIndex = 0;
   let heroButtons = [];
@@ -365,6 +366,21 @@
     document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
   }
 
+  function setupBackToTop() {
+    if (!backToTop) return;
+    const toggleBackToTop = () => {
+      const visible = window.scrollY > window.innerHeight * 0.65;
+      backToTop.classList.toggle("is-visible", visible);
+      backToTop.setAttribute("aria-hidden", String(!visible));
+    };
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    window.addEventListener("scroll", toggleBackToTop, { passive: true });
+    toggleBackToTop();
+  }
+
   function setupLanguageReserve() {
     const button = document.querySelector(".language-pill");
     button.addEventListener("click", () => {
@@ -384,5 +400,6 @@
   setupSocialPopover();
   setupModal();
   setupReveal();
+  setupBackToTop();
   setupLanguageReserve();
 })();

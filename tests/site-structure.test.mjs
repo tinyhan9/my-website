@@ -267,11 +267,14 @@ test("visual system uses dark background, opaque logo, and bold Microsoft YaHei"
   assert.match(css, /\.nav-links \.language-pill\s*\{[\s\S]*color:\s*var\(--muted\)/);
   assert.doesNotMatch(css, /mix-blend-mode:\s*difference/);
   assert.match(css, /\.social-item[\s\S]*--social-color/);
-  assert.match(css, /\.social-item[\s\S]*width:\s*3\.5rem/);
-  assert.match(css, /\.social-item[\s\S]*height:\s*3\.5rem/);
-  assert.match(css, /\.social-item \.icon[\s\S]*width:\s*1\.55rem/);
+  assert.match(css, /\.social-item[\s\S]*width:\s*2\.72rem/);
+  assert.match(css, /\.social-item[\s\S]*height:\s*2\.72rem/);
+  assert.match(css, /\.social-item \.icon[\s\S]*width:\s*1\.32rem/);
   assert.match(css, /\.social-item:hover,\s*\.social-item:focus-visible[\s\S]*transform:\s*translateY\(-6px\)/);
   assert.match(css, /\.social-item:hover,\s*\.social-item:focus-visible[\s\S]*box-shadow:\s*0 28px 60px/);
+  assert.match(css, /\.back-to-top[\s\S]*position:\s*fixed/);
+  assert.match(css, /\.back-to-top[\s\S]*right:\s*max\(1rem,\s*env\(safe-area-inset-right\)\)/);
+  assert.match(css, /\.back-to-top\.is-visible[\s\S]*opacity:\s*1/);
   assert.match(css, /\.footer-logo[\s\S]*background:\s*transparent/);
   assert.match(css, /\.social-popover/);
   assert.match(css, /\.hero\.is-switching/);

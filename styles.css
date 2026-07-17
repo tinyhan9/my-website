@@ -820,9 +820,9 @@ h3 {
 .social-item {
   --social-color: var(--citrine);
   position: relative;
-  width: 3.5rem;
-  height: 3.5rem;
-  min-height: 3.5rem;
+  width: 2.72rem;
+  height: 2.72rem;
+  min-height: 2.72rem;
   justify-content: center;
   flex-direction: row;
   gap: 0;
@@ -863,8 +863,52 @@ h3 {
 }
 
 .social-item .icon {
-  width: 1.55rem;
-  height: 1.55rem;
+  width: 1.32rem;
+  height: 1.32rem;
+}
+
+.back-to-top {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 45;
+  display: grid;
+  place-items: center;
+  width: 2.72rem;
+  height: 2.72rem;
+  min-width: 2.72rem;
+  min-height: 2.72rem;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--citrine);
+  background: var(--panel);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(0.75rem);
+  transition: opacity 220ms ease, visibility 220ms ease, transform 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  border-color: color-mix(in srgb, var(--citrine) 74%, transparent);
+  background: var(--panel-soft);
+  outline: 0;
+  transform: translateY(-0.25rem);
+}
+
+.back-to-top .icon {
+  width: 1.32rem;
+  height: 1.32rem;
 }
 
 .social-label {
