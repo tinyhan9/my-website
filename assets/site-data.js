@@ -455,8 +455,6 @@
       { label: "微信", value: "tinyhan9", displayValue: "", popupValue: "tinyhan9", href: "", icon: "wechat", color: "#07c160" },
       { label: "小红书", value: "xiaohongshu", displayValue: "", href: "https://www.xiaohongshu.com/user/profile/5a251b834eacab1bc2713f4d", icon: "xiaohongshu", color: "#ff2442" },
       { label: "bilibili", value: "space.bilibili.com/8953106", displayValue: "", href: "https://space.bilibili.com/8953106?spm_id_from=333.1007.0.0", icon: "bilibili", color: "#00aeec" },
-      { label: "Instagram", value: "@tinyhan9", displayValue: "", href: "https://www.instagram.com/tinyhan9/", icon: "instagram", color: "#e4405f" },
-      { label: "YouTube", value: "@tinywang2181", displayValue: "", href: "https://www.youtube.com/@tinywang2181", icon: "youtube", color: "#ff0000" },
       { label: "邮箱", value: "littlehan1989@gmail.com", displayValue: "", popupValue: "littlehan1989@gmail.com", href: "", icon: "mail", color: "#ff953e" },
     ],
   };

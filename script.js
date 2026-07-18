@@ -29,7 +29,7 @@
   let heroSwitchTimer = 0;
   let heroDragStartX = null;
   let activeSocialValue = "";
-  const headerSocialIcons = ["wechat", "xiaohongshu", "instagram"];
+  const headerSocialIcons = ["wechat", "xiaohongshu", "bilibili"];
 
   const iconPaths = {
     mail: '<path d="M3 6.5h18v11H3z"/><path d="m4 7 8 6 8-6"/>',

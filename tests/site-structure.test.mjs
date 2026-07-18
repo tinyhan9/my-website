@@ -122,9 +122,11 @@ test("portfolio data covers current local assets and contact channels", () => {
   assert.ok(data.contact.every((item) => item.label !== "电话"), "phone should be removed from about contact cards");
 
   const socialLabels = JSON.parse(JSON.stringify(data.social.map((item) => item.label)));
-  for (const label of ["微信", "小红书", "bilibili", "Instagram", "YouTube", "邮箱"]) {
+  for (const label of ["微信", "小红书", "bilibili", "邮箱"]) {
     assert.ok(socialLabels.includes(label), `missing social channel ${label}`);
   }
+  assert.ok(!socialLabels.includes("Instagram"), "Instagram should be removed from social links");
+  assert.ok(!socialLabels.includes("YouTube"), "YouTube should be removed from social links");
 
   const allTitles = new Set([...data.featuredWorks, ...data.experiments].map((item) => item.title));
   for (const title of ["特步 黄金棉", "云鲸逍遥扫地机", "信用卡案例", "哇嘎门头瀑布", "口红流体", "花中镜", "室内睡莲", "Bamboo Wind", "Bamboo Morden", "Knitting 01", "Knitting 02", "布料舞动"]) {
@@ -226,7 +228,7 @@ test("script plays source video in the modal and supports manual hero arrows", (
   assert.match(script, /renderContacts/);
   assert.match(script, /headerSocialList/);
   assert.match(script, /renderHeaderSocials/);
-  assert.match(script, /headerSocialIcons\s*=\s*\["wechat",\s*"xiaohongshu",\s*"instagram"\]/);
+  assert.match(script, /headerSocialIcons\s*=\s*\["wechat",\s*"xiaohongshu",\s*"bilibili"\]/);
   assert.doesNotMatch(script, /item-label">\$\{item\.label\}/);
   assert.doesNotMatch(script, /About & Contact/);
   assert.doesNotMatch(script, /selectPanel/);
