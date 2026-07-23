@@ -23,6 +23,10 @@
 *.mov binary
 *.mp4 binary
 *.png binary
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
 *.webp binary
 *.xls binary
 *.xlsx binary

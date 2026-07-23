@@ -13,6 +13,30 @@
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
 }
 
+@font-face {
+  font-family: "HarmonyOS Sans";
+  src: url("assets/fonts/harmonyos-sans/HarmonyOS_Sans_SC_Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HarmonyOS Sans";
+  src: url("assets/fonts/harmonyos-sans/HarmonyOS_Sans_SC_Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HarmonyOS Sans";
+  src: url("assets/fonts/harmonyos-sans/HarmonyOS_Sans_SC_Black.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -30,7 +54,7 @@ body {
     linear-gradient(90deg, rgba(244, 240, 232, 0.035) 1px, transparent 1px),
     linear-gradient(rgba(244, 240, 232, 0.025) 1px, transparent 1px);
   background-size: 96px 96px;
-  font-family: "Microsoft YaHei", "Microsoft YaHei UI", sans-serif;
+  font-family: "HarmonyOS Sans", "Microsoft YaHei", "Microsoft YaHei UI", sans-serif;
   font-weight: 700;
   letter-spacing: 0;
 }
@@ -399,7 +423,7 @@ h1,
 h2,
 h3 {
   margin: 0;
-  font-family: "Microsoft YaHei", "Microsoft YaHei UI", sans-serif;
+  font-family: "HarmonyOS Sans", "Microsoft YaHei", "Microsoft YaHei UI", sans-serif;
   font-weight: 700;
   letter-spacing: 0;
 }
@@ -795,8 +819,8 @@ h3 {
 
 .site-footer {
   display: grid;
-  grid-template-columns: minmax(12rem, 18rem) 1fr;
-  gap: 4rem;
+  grid-template-columns: minmax(12rem, 18rem) 1fr minmax(12rem, 18rem);
+  gap: 2rem;
   padding: 3rem 1.6rem 1.7rem;
   background: #050505;
   color: var(--paper);
@@ -807,6 +831,21 @@ h3 {
   margin: 1rem 0 0;
   color: var(--quiet);
   font-size: 0.78rem;
+}
+
+.footer-icp {
+  justify-self: center;
+  align-self: end;
+  color: var(--quiet);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  transition: color 180ms ease, opacity 180ms ease;
+}
+
+.footer-icp:hover,
+.footer-icp:focus-visible {
+  color: var(--citrine);
+  outline: 0;
 }
 
 .social-list {
@@ -1273,6 +1312,10 @@ h3 {
   .site-footer {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .footer-icp {
+    justify-self: center;
   }
 
   .social-list {

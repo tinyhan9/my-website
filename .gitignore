@@ -35,6 +35,7 @@ pnpm-debug.log*
 tests/artifacts/
 outputs/
 back-index.html
+.pi/
 
 # Local files not referenced by assets/site-data.js
 其他作品/stick_notes_audio.mp4

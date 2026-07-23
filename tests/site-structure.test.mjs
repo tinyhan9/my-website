@@ -87,6 +87,9 @@ test("static site shell exposes the planned portfolio sections", () => {
   assert.match(html, /data-hero-direction="next"/);
   assert.match(html, /hero-arrow-glyph/);
   assert.match(html, /id="socialPopover"/);
+  assert.match(html, /湘ICP备2026030155号/);
+  assert.match(html, /https:\/\/beian\.miit\.gov\.cn\//);
+  assert.match(html, /class="footer-icp"/);
   assert.doesNotMatch(html, /source-link/);
   assert.doesNotMatch(html, /打开高清源文件/);
   assert.doesNotMatch(html, /点击直达/);
@@ -249,10 +252,17 @@ test("script plays source video in the modal and supports manual hero arrows", (
   assert.doesNotMatch(script, /点击直达/);
 });
 
-test("visual system uses dark background, opaque logo, and bold Microsoft YaHei", () => {
+test("visual system uses dark background, opaque logo, and bold HarmonyOS Sans", () => {
   const css = readText("styles.css");
 
-  assert.match(css, /font-family:\s*"Microsoft YaHei"/);
+  assert.match(css, /font-family:\s*"HarmonyOS Sans"/);
+  assert.match(css, /"Microsoft YaHei"/);
+  assert.match(css, /HarmonyOS_Sans_SC_Regular\.ttf/);
+  assert.match(css, /HarmonyOS_Sans_SC_Bold\.ttf/);
+  assert.match(css, /HarmonyOS_Sans_SC_Black\.ttf/);
+  assert.ok(exists("assets/fonts/harmonyos-sans/HarmonyOS_Sans_SC_Regular.ttf"), "HarmonyOS Sans Regular should be bundled");
+  assert.ok(exists("assets/fonts/harmonyos-sans/HarmonyOS_Sans_SC_Bold.ttf"), "HarmonyOS Sans Bold should be bundled");
+  assert.ok(exists("assets/fonts/harmonyos-sans/HarmonyOS_Sans_SC_Black.ttf"), "HarmonyOS Sans Black should be bundled");
   assert.match(css, /font-weight:\s*700/);
   assert.match(css, /background:\s*#050505/);
   assert.match(css, /--citrine:\s*#ff953e/);
@@ -278,6 +288,9 @@ test("visual system uses dark background, opaque logo, and bold Microsoft YaHei"
   assert.match(css, /\.back-to-top[\s\S]*right:\s*max\(1rem,\s*env\(safe-area-inset-right\)\)/);
   assert.match(css, /\.back-to-top\.is-visible[\s\S]*opacity:\s*1/);
   assert.match(css, /\.footer-logo[\s\S]*background:\s*transparent/);
+  assert.match(css, /\.footer-icp[\s\S]*justify-self:\s*center/);
+  assert.match(css, /\.footer-icp[\s\S]*color:\s*var\(--quiet\)/);
+  assert.match(css, /\.footer-icp:hover,\s*\.footer-icp:focus-visible[\s\S]*color:\s*var\(--citrine\)/);
   assert.match(css, /\.social-popover/);
   assert.match(css, /\.hero\.is-switching/);
   assert.match(css, /\.work-card[\s\S]*aspect-ratio/);
