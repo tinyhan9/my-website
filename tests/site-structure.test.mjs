@@ -124,12 +124,21 @@ test("portfolio data covers current local assets and contact channels", () => {
   assert.deepEqual(contactLabels, ["微信", "邮箱"]);
   assert.ok(data.contact.every((item) => item.label !== "电话"), "phone should be removed from about contact cards");
 
-  const socialLabels = JSON.parse(JSON.stringify(data.social.map((item) => item.label)));
-  for (const label of ["微信", "小红书", "bilibili", "邮箱"]) {
-    assert.ok(socialLabels.includes(label), `missing social channel ${label}`);
+  const socialIcons = JSON.parse(JSON.stringify(data.social.map((item) => item.icon)));
+  for (const icon of ["wechat", "xiaohongshu", "bilibili", "afdian", "mail"]) {
+    assert.ok(socialIcons.includes(icon), `missing social icon ${icon}`);
   }
-  assert.ok(!socialLabels.includes("Instagram"), "Instagram should be removed from social links");
-  assert.ok(!socialLabels.includes("YouTube"), "YouTube should be removed from social links");
+  assert.ok(!socialIcons.includes("instagram"), "Instagram should be removed from social links");
+  assert.ok(!socialIcons.includes("youtube"), "YouTube should be removed from social links");
+
+  const afdian = data.social.find((item) => item.icon === "afdian");
+  assert.ok(afdian, "Afdian should be included in footer social links");
+  assert.equal(afdian.label, "爱发电");
+  assert.equal(afdian.href, "https://afdian.com/a/tinywang");
+
+  const oishiShrimp = data.featuredWorks.find((item) => item.id === "work-oishi-shrimp");
+  assert.ok(oishiShrimp.source.endsWith(".mp4"), "shrimp source should use mp4");
+  assert.doesNotMatch(oishiShrimp.source, /\.m4v$/i);
 
   const allTitles = new Set([...data.featuredWorks, ...data.experiments].map((item) => item.title));
   for (const title of ["特步 黄金棉", "云鲸逍遥扫地机", "信用卡案例", "哇嘎门头瀑布", "口红流体", "花中镜", "室内睡莲", "Bamboo Wind", "Bamboo Morden", "Knitting 01", "Knitting 02", "布料舞动"]) {

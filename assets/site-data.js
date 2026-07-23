@@ -140,7 +140,7 @@
         id: "work-oishi-shrimp",
         title: "上好佳 虾片",
         category: "食品广告",
-        source: "主要作品/上好佳 虾片.m4v",
+        source: "主要作品/上好佳 虾片.mp4",
         poster: "主要作品/上好佳 虾片.png",
         preview: preview("work-oishi-shrimp"),
         duration: "00:30",
@@ -455,6 +455,7 @@
       { label: "微信", value: "tinyhan9", displayValue: "", popupValue: "tinyhan9", href: "", icon: "wechat", color: "#07c160" },
       { label: "小红书", value: "xiaohongshu", displayValue: "", href: "https://www.xiaohongshu.com/user/profile/5a251b834eacab1bc2713f4d", icon: "xiaohongshu", color: "#ff2442" },
       { label: "bilibili", value: "space.bilibili.com/8953106", displayValue: "", href: "https://space.bilibili.com/8953106?spm_id_from=333.1007.0.0", icon: "bilibili", color: "#00aeec" },
+      { label: "爱发电", value: "afdian.com/a/tinywang", displayValue: "", href: "https://afdian.com/a/tinywang", icon: "afdian", color: "#946ce6" },
       { label: "邮箱", value: "littlehan1989@gmail.com", displayValue: "", popupValue: "littlehan1989@gmail.com", href: "", icon: "mail", color: "#ff953e" },
     ],
   };
